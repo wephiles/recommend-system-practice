@@ -10,10 +10,11 @@ def save_data(file_path, data):
     :param data: 要保存的数据
     :return: None
     """
-    parent_path = file_path[: file_path.rfind("/")]
+    parent_path = file_path[ : file_path.rfind("/")]
     
     if not os.path.exists(parent_path):
         os.mkdir(parent_path)
+    
     with open(file_path, "wb") as fp:
         pickle.dump(data, fp)
             
@@ -23,9 +24,8 @@ def load_data(file_path):
     :param file_path: 文件路径
     :return: binary object data.
     """
-    with open() as fp:
+    with open(file_path, "rb") as fp:
         data = pickle.load()
-        
     return data
 
 
