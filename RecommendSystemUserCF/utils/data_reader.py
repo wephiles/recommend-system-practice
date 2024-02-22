@@ -49,18 +49,5 @@ def read_all_data(path):
         user, movie, rating, _ = line.replace("\n", "").split("\t")
         data_list.append([user,movie,rating])
     return data_list
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
     

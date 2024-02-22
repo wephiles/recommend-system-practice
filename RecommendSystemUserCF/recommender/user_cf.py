@@ -19,7 +19,7 @@ class UserCF(object):
         """模型训练
         
         :param origin_data: 原始数据。
-        :sim_matrix_path: 协同矩阵保存的路径。
+        :param sim_matrix_path: 协同矩阵保存的路径。
         :return: 
         """
         self.origin_data = origin_data
@@ -29,7 +29,7 @@ class UserCF(object):
             print("开始载入用户协同矩阵...", file=sys.stderr)
             self.user_sim_matrix = load_data(sim_matrix_path)
             print("载入用户协同矩阵完成。", file=sys.stderr)
-        except BaseException:
+        except FileNotFoundError:
             print("载入用户过滤矩阵失败，请重新计算用户矩阵。", file=sys.stderr)
             # 计算用户相似度
             self.user_sim_matrix = self.user_similarity()

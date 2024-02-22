@@ -117,36 +117,3 @@ def popularity(item_popular, recommends):
             popularity += math.log(1. + item_popular.get(item, 0.))
             n += 1
     return popularity / n
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
