@@ -4,8 +4,8 @@ MSE是计算预测值与真实值之间差异的平方的平均值。具体而�
 RMSE是MSE的平方根，它与原始数据的单位相匹配，因此更容易解释。RMSE越小，表示预测模型的预测误差越小。通常情况下，我们更倾向于使用RMSE来评估模型的性能，因为它对较大误差的惩罚更重，并且与原始数据的单位一致，更易于解释。
 """
 
-
 import math
+
 
 def RMSE(records):
     """计算RMSE
@@ -13,9 +13,10 @@ def RMSE(records):
     :param records: 预测评价与真实评价的一个list
     :return: RMSE值
     """
-    numerator = sum( [ (pred_rating-actual_rating) ** 2 for  pred_rating, actual_rating in records] )  # 分子
+    numerator = sum([(pred_rating - actual_rating) ** 2 for pred_rating, actual_rating in records])  # 分子
     denominator = float(len(records))  # 分母
-    return math.sqrt(numerator/denominator)
+    return math.sqrt(numerator / denominator)
+
 
 def MSE(records):
     """计算MSE
@@ -23,9 +24,9 @@ def MSE(records):
     :param records: 预测评价与真实评价的一个list
     :return: MSE值
     """
-    numerator = sum( [ (pred_rating - actual_rating) ** 2 for  pred_rating, actual_rating in records] )  # 分子
+    numerator = sum([(pred_rating - actual_rating) ** 2 for pred_rating, actual_rating in records])  # 分子
     denominator = float(len(records))  # 分母
-    return numerator/denominator
+    return numerator / denominator
 
 
 """
@@ -35,6 +36,8 @@ def MSE(records):
 准确率的取值范围在0到1之间，越接近1表示推荐系统的推荐结果中更多的物品是用户感兴趣的。
 需要注意的是，准确率只关注推荐结果的准确性，而不考虑推荐系统是否找回了用户感兴趣的所有物品。因此，在实际评估中，通常会综合考虑准确率、召回率、排序质量等指标来综合评估推荐系统的性能。
 """
+
+
 def precision(recommends, tests):
     """计算准确度
     
@@ -59,6 +62,8 @@ def precision(recommends, tests):
 召回率的取值范围在0到1之间，越接近1表示推荐系统能够更好地找回用户感兴趣的物品。
 召回率是评估推荐系统的重要指标之一，它强调推荐系统找回用户感兴趣的物品的能力。然而，召回率并不能完全衡量推荐系统的质量，因为它忽略了推荐系统的准确性和推荐结果的排序。因此，在实际评估中，通常会综合考虑召回率、准确率、排序质量等指标来综合评估推荐系统的性能。
 """
+
+
 def recall(recommends, tests):
     """计算召回率
     
@@ -83,6 +88,7 @@ def recall(recommends, tests):
 因此，在实际评估中，需要综合考虑覆盖率、准确率、召回率、排序质量等指标来综合评估推荐系统的性能，以找到一个平衡点，既能提供多样化的推荐结果，又能准确地满足用户的个性化需求。
 """
 
+
 def coverage(recommends, all_items):
     """计算覆盖率
     
@@ -103,6 +109,8 @@ def coverage(recommends, all_items):
 流行度的计算方式可以有多种形式，具体取决于推荐系统的设计和需求。一种常见的计算方式是根据物品的点击量、购买量、评分或其他相关指标来衡量流行度。较高的点击量、购买量或评分通常表示物品更受用户欢迎，因此具有较高的流行度。
 在推荐系统中，流行度可以用于优化推荐算法的效果。例如，可以将一定比例的推荐结果保留给热门物品，以确保满足用户的广泛需求和兴趣。然而，过度依赖流行度可能导致推荐系统的偏向性，忽略了个性化的推荐需求和长尾物品的推荐。因此，在推荐系统中，需要综合考虑流行度、个性化度、多样性等指标，以平衡推荐结果的准确性和用户体验。
 """
+
+
 def popularity(item_popular, recommends):
     """计算流行度
     

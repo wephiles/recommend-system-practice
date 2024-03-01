@@ -27,7 +27,7 @@ def load_data(file_path):
     :return: binary object data.
     """
     with open(file_path, "rb") as fp:
-        data = pickle.load()
+        data = pickle.load(fp)
     return data
 
 

@@ -8,7 +8,7 @@ def load_file(file_name):  # 生成器函数
             yield line
 
             
-def read_rating_data(path="./data/ml-100k/u.data", train_rate=1., seed=1):
+def read_rating_data(path="./RecommendSystemUserCF/data/ml-100k/u.data", train_rate=1., seed=1):
     """载入评分数据
     
     :param path: 文件路径
@@ -30,7 +30,7 @@ def read_rating_data(path="./data/ml-100k/u.data", train_rate=1., seed=1):
     return train_set, test_set
 
 
-def all_items(path="./data/ml-100k/u.data"):
+def all_items(path="./RecommendSystemUserCF/data/ml-100k/u.data"):
     """返回所有的电影信息。
     
     :param path: 数据路径。

@@ -5,7 +5,7 @@ from collections import defaultdict
 import math
 from operator import itemgetter
 import sys
-from utils.utils import save_data, load_data
+from RecommendSystemUserCF.utils.utils import save_data, load_data
 import pandas as pd
 
 
@@ -15,7 +15,7 @@ class UserCF(object):
         self.origin_data = None
         self.user_sim_matrix = None
 
-    def train(self, origin_data, sim_matrix_path="./data/user_sim.pkl"):
+    def train(self, origin_data, sim_matrix_path="./RecommendSystemUserCF/data/sim_matrix.pkl"):
         """模型训练
         
         :param origin_data: 原始数据。

@@ -12,7 +12,7 @@ import math
 
 
 def RMSE(records):
-    """计算RMSE
+    """计算RMSE 
 
     :param records: 预测评价与真实评价的一个list
     :return: RMSE值

@@ -20,7 +20,7 @@ class UserIIF(object):
         self.origin_data = None
         self.user_sim_matrix = None
 
-    def train(self, origin_data, sim_matrix_path=r"./RecommendSystemUserIIF/data/user_sim.pkl"):
+    def train(self, origin_data, sim_matrix_path=r"./RecommendSystemUserIIF/data/sim_matrix.pkl"):
         """训练数据
 
         :param origin_data: 原始数据
