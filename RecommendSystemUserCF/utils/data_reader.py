@@ -6,6 +6,7 @@ def load_file(file_name):  # 生成器函数
     with open(file_name, "r") as fp:
         for line in fp:
             yield line
+            # [line, line, line, ...]
 
             
 def read_rating_data(path="./RecommendSystemUserCF/data/ml-100k/u.data", train_rate=1., seed=1):
@@ -19,7 +20,7 @@ def read_rating_data(path="./RecommendSystemUserCF/data/ml-100k/u.data", train_r
     train_set = list()
     test_set = list()
 
-    random.seed(seed)
+    random.seed(seed)  # 一定要写上这一句话
 
     for line in load_file(file_name=path):
         user, movie, rating, _ = line.split("\t")
@@ -27,7 +28,7 @@ def read_rating_data(path="./RecommendSystemUserCF/data/ml-100k/u.data", train_r
             train_set.append([int(user), int(movie), int(rating)])
         else:
             test_set.append([int(user), int(movie), int(rating)])
-    return train_set, test_set
+    return train_set, test_set  # 返回一个tuple
 
 
 def all_items(path="./RecommendSystemUserCF/data/ml-100k/u.data"):
@@ -36,10 +37,10 @@ def all_items(path="./RecommendSystemUserCF/data/ml-100k/u.data"):
     :param path: 数据路径。
     :return: tuple of movie。
     """
-    items = set()
+    items = set()  # 集合
     for line in load_file(path):
         _, movie, _, _ = line.split("\t")
-        items.add(movie)
+        items.add(movie)  # 集合的元素是唯一的
     return items
 
 
@@ -47,7 +48,7 @@ def read_all_data(path):
     data_list = []
     for line in load_file(path):
         user, movie, rating, _ = line.replace("\n", "").split("\t")
-        data_list.append([user,movie,rating])
+        data_list.append([user, movie, rating])
     return data_list
   
     

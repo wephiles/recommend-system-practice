@@ -60,17 +60,21 @@ class UserCF(object):
         item_user = dict()
         for user, items in self.train.items():
             for item in items:
-                item_user.setdefault(item, set())
+                item_user.setdefault(item, set())  # setdefault方法等价于dict里面的get方法
                 item_user[item].add(user)
         print("建立用户-物品倒排表完毕")
                 
         # 建立用户协同矩阵
         print("计算用户协同矩阵...")
         user_sim_matrix = dict()
-        N = defaultdict(int)  # 记录用户购买商品数
+        N = defaultdict(int)  # 记录用户购买商品数 N={}
+
+        # defaultdict表示如果查找字典键值的时候没有这个键，那么就加入这个键
+        # 并将键的初值置为0
+
         for item, users in item_user.items():
             for u in users:
-                N[u] += 1
+                N[u] += 1  # dict["key"]
                 for v in users:
                     if u == v:
                         continue
@@ -80,6 +84,8 @@ class UserCF(object):
 
         # 计算相关度
         print("计算相关度...")
+
+        # 下面代码本人不是很懂
         for u, related_users in user_sim_matrix.items():
             for v, con_items_count in related_users.items():
                 user_sim_matrix[u][v] = con_items_count / math.sqrt(N[u] * N[v])
@@ -122,7 +128,7 @@ class UserCF(object):
         :param users: 用户列表
         :param N: 推荐的商品个数
         :param K: 查找最相似的用户个数
-        :return: 推荐字典 { 用户： 推荐商品的list }
+        :return: 推荐字典 { 用户： 推荐商品的list,  用户： 推荐商品的list, ...}
         """
         recommends = dict()
 
